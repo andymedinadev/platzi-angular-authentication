@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BtnComponent } from '../btn/btn.component';
+import { ButtonComponent } from '../button/button.component';
 import { ToDo } from '../../models/todo.model';
 
 // ICONS
@@ -26,7 +26,7 @@ interface OutputData {
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [BtnComponent, FontAwesomeModule],
+  imports: [ButtonComponent, FontAwesomeModule],
   templateUrl: './modal.component.html',
 })
 export class ModalComponent {

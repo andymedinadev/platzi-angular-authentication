@@ -6,7 +6,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { DataSourceProduct } from './data-source';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { BtnComponent } from '../../components/btn/btn.component';
+import { ButtonComponent } from '../../components/button/button.component';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -17,7 +17,7 @@ import { Product } from '../../models/product.model';
     CdkTableModule,
     ReactiveFormsModule,
     NavbarComponent,
-    BtnComponent,
+    ButtonComponent,
     NgClass,
   ],
   templateUrl: './table.component.html',
