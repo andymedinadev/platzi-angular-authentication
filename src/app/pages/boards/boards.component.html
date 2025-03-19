@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto mt-10 flex">
+  <div class="mr-4 w-1/5">
+    <ul class="mb-10 flex flex-col font-medium text-gray-700">
+      <li>
+        <a class="block rounded bg-sky-100 py-1 px-3 text-sky-700">
+          <fa-icon [icon]="icons.trello"></fa-icon> Boards
+        </a>
+      </li>
+      <li>
+        <a class="block py-1 px-3">
+          <fa-icon [icon]="icons.box"></fa-icon> Templates
+        </a>
+      </li>
+      <li>
+        <a class="block py-1 px-3">
+          <fa-icon [icon]="icons.waveSquare"></fa-icon> Home
+        </a>
+      </li>
+    </ul>
+
+    <cdk-accordion>
+      <cdk-accordion-item #accordionMenu="cdkAccordionItem">
+        <button
+          class="flex w-full items-center justify-between py-1 px-2 pb-4"
+          type="button"
+          (click)="accordionMenu.toggle()"
+        >
+          My Workspace
+          <fa-icon
+            [icon]="accordionMenu.expanded ? icons.angleUp : icons.angleDown"
+          ></fa-icon>
+        </button>
+        <div
+          [ngClass]="{
+            hidden: !accordionMenu.expanded,
+            block: accordionMenu.expanded,
+          }"
+        >
+          <cdk-accordion>
+            <cdk-accordion-item
+              #accordionMenu="cdkAccordionItem"
+              *ngFor="let accordion of accordions"
+            >
+              <button
+                class="flex w-full items-center justify-between py-1 px-2"
+                type="button"
+                (click)="accordionMenu.toggle()"
+              >
+                <span class="flex items-center gap-2">
+                  <fa-icon [icon]="accordion.icon"></fa-icon>
+                  {{ accordion.label }}
+                </span>
+                <fa-icon
+                  [icon]="
+                    accordionMenu.expanded ? icons.angleUp : icons.angleDown
+                  "
+                ></fa-icon>
+              </button>
+              <div
+                [ngClass]="{
+                  hidden: !accordionMenu.expanded,
+                  block: accordionMenu.expanded,
+                }"
+              >
+                <ul class="ml-2 flex flex-col text-sm text-gray-700">
+                  <li *ngFor="let subItem of accordion.items">
+                    <a class="block py-1 px-3">{{ subItem.label }}</a>
+                  </li>
+                </ul>
+              </div>
+            </cdk-accordion-item>
+          </cdk-accordion>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+  </div>
+  <div class="w-full">
+    <h1 class="mb-4 text-lg font-bold">
+      <fa-icon [icon]="icons.clock"></fa-icon> Recently viewed
+    </h1>
+    <div class="grid grid-cols-4 gap-4">
+      <div
+        class="h-24 w-full rounded bg-sky-700 px-4 py-2 font-bold text-white"
+      >
+        Board 1
+      </div>
+      <div
+        class="h-24 w-full rounded bg-green-700 px-4 py-2 font-bold text-white"
+      >
+        Board 2
+      </div>
+      <div
+        class="h-24 w-full rounded bg-amber-700 px-4 py-2 font-bold text-white"
+      >
+        Board 3
+      </div>
+      <div
+        class="h-24 w-full rounded bg-indigo-700 px-4 py-2 font-bold text-white"
+      >
+        Board 4
+      </div>
+    </div>
+  </div>
+</div>
