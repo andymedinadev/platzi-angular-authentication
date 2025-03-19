@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { CdkTableModule } from '@angular/cdk/table';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { DataSourceUsers } from './data-source';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CdkTableModule, NavbarComponent, NgClass],
+  imports: [CdkTableModule, NgClass],
   templateUrl: './users-table.component.html',
 })
 export class UsersTableComponent {
