@@ -2,8 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { BoardsComponent } from './pages/boards/boards.component';
 import { SingleBoardComponent } from './pages/single-board/single-board.component';
-import { ScrollComponent } from './pages/scroll/scroll.component';
-import { TableComponent } from './pages/table/table.component';
+import { UsersTableComponent } from './pages/users-table/users-table.component';
 
 export const routes: Routes = [
   {
@@ -19,11 +18,7 @@ export const routes: Routes = [
     component: SingleBoardComponent,
   },
   {
-    path: 'scroll',
-    component: ScrollComponent,
-  },
-  {
-    path: 'table',
-    component: TableComponent,
+    path: 'users',
+    component: UsersTableComponent,
   },
 ];
