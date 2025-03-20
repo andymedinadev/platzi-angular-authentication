@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, switchMap, tap } from 'rxjs';
 import { environment } from '@environments/environment';
-import { TokenService } from './token.service';
+import { TokenService } from '@services/token.service';
+import { checkToken } from '@interceptors/token.interceptor';
 import { ResponseLogin } from '@models/auth.model';
 import { User } from '@models/user.model';
 
@@ -73,12 +73,9 @@ export class AuthService {
   }
 
   getProfile() {
-    const token = this.tokenService.getToken();
     return this.http
       .get<User>(`${this.apiUrl}/api/v1/auth/profile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        context: checkToken(),
       })
       .pipe(
         tap((user) => {
