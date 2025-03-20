@@ -1,0 +1,46 @@
+### AUTH
+
+### Login
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/login
+content-type: application/json
+
+{
+  "email": "test@mail.com",
+  "password": "changeme"
+}
+
+
+### Register
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/register
+content-type: application/json
+
+{
+  "email": "test2032025@mail.com",
+  "password": "12345678",
+  "name": "test"
+}
+
+### Is Available
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/is-available
+content-type: application/json
+
+{
+  "email": "test@mail.com",
+}
+
+### Recovery
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/recovery
+content-type: application/json
+
+{
+  "email": "test2032025@mail.com"
+}
+
+### Change Password
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/change-password
+content-type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsImlhdCI6MTc0MjQ4NTc5NiwiZXhwIjoxNzQyNDg2MDk2fQ.HYFX1P_kWi5ADzZd3g0foAE_8VKVICwU88y2ny_9mts",
+  "newPassword": "newpass"
+}
