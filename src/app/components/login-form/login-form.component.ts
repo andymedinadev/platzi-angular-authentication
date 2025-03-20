@@ -5,11 +5,20 @@ import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPen, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../button/button.component';
+import { AuthService } from '@services/auth.service';
+import { RequestStatus } from '@models/request-status.model';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [FontAwesomeModule, NgIf, ButtonComponent, ReactiveFormsModule],
+  imports: [
+    FontAwesomeModule,
+    NgIf,
+    ButtonComponent,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   templateUrl: './login-form.component.html',
 })
 export class LoginFormComponent {
@@ -17,22 +26,36 @@ export class LoginFormComponent {
     email: ['', [Validators.email, Validators.required]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   });
-  faPen = faPen;
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
+
+  icons = {
+    pen: faPen,
+    eye: faEye,
+    eyeSlash: faEyeSlash,
+  };
+
   showPassword = false;
-  status: string = 'init';
+  status: RequestStatus = 'init';
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private authService: AuthService,
   ) {}
 
   doLogin() {
     if (this.form.valid) {
       this.status = 'loading';
       const { email, password } = this.form.getRawValue();
-      // TODO
+      this.authService.login(email, password).subscribe({
+        next: () => {
+          this.status = 'success';
+          this.router.navigate(['/app']);
+        },
+        error: () => {
+          this.status = 'failed';
+          console.log('ERROR');
+        },
+      });
     } else {
       this.form.markAllAsTouched();
     }
