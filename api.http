@@ -15,8 +15,8 @@ POST https://fake-trello-api.herokuapp.com/api/v1/auth/register
 content-type: application/json
 
 {
-  "email": "test2032025@mail.com",
-  "password": "12345678",
+  "email": "test@mail.com",
+  "password": "changeme",
   "name": "test"
 }
 
@@ -44,6 +44,15 @@ content-type: application/json
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsImlhdCI6MTc0MjQ4NTc5NiwiZXhwIjoxNzQyNDg2MDk2fQ.HYFX1P_kWi5ADzZd3g0foAE_8VKVICwU88y2ny_9mts",
   "newPassword": "newpass"
 }
+
+### Refresh Token
+POST https://fake-trello-api.herokuapp.com/api/v1/auth/refresh-token
+content-type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE3NDI1MDg1NDEsImV4cCI6MTc0MjU0NDU0MX0.oCd6lljelltd5veaXUSYaNbMkW0ZyhgoeeMziydaivQ"
+}
+
 
 
 ### USERS
