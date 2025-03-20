@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { DataSourceUser } from './data-source';
 import { UsersService } from '@services/users.service';
@@ -7,7 +7,7 @@ import { UsersService } from '@services/users.service';
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',
 })
-export class UsersTableComponent {
+export class UsersTableComponent implements OnInit {
   dataSource = new DataSourceUser();
   columns: string[] = ['id', 'avatar', 'name', 'email'];
 
