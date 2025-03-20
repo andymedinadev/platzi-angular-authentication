@@ -44,3 +44,12 @@ content-type: application/json
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsImlhdCI6MTc0MjQ4NTc5NiwiZXhwIjoxNzQyNDg2MDk2fQ.HYFX1P_kWi5ADzZd3g0foAE_8VKVICwU88y2ny_9mts",
   "newPassword": "newpass"
 }
+
+
+### USERS
+
+### Get All
+GET https://fake-trello-api.herokuapp.com/api/v1/users/
+content-type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImlhdCI6MTc0MjQ5MzAxOCwiZXhwIjoxNzQyNTExMDE4fQ.yqzf5LZpVUQI_wbWCVL9VZPewo-gko7Cfz--UoJnAbw
+
